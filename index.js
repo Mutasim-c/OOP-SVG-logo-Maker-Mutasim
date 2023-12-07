@@ -23,7 +23,11 @@ const questions = [
     }
 ];
 
-inquirer
-  .prompt(
-    questions
-  ).then((res) => console.log(res))
+function init() {
+  inquirer.prompt(questions).then((answers) => {
+      console.log(answers);
+  })
+}
+
+// Function call to initialize app
+init();
