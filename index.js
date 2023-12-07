@@ -1,4 +1,7 @@
 const inquirer = require('inquirer');
+const Shape = require('./lib/shapes.js');
+const Render = require('./lib/render.js');
+const { readFile, writeFile } = require('fs/promises');
 const questions = [
     {
     type: 'input',
@@ -25,7 +28,35 @@ const questions = [
 
 function init() {
   inquirer.prompt(questions).then((answers) => {
-      console.log(answers);
+      let shape;
+      switch(answers.shape){
+        case 'square':
+          shape = new Shape.Square();
+          break;
+        case 'triangle':
+          shape = new Shape.Triangle();
+          break;
+        case 'circle':
+          shape = new Shape.Circle();
+          break
+      }
+      // if(answers.text.length > 3){
+      //   throw new Error('Text is longer than 3 characters');
+      // }else{
+      //   const text = new Render.Text(answers.text, answers.textColour)
+      // }
+      console.log(shape);
+      const text = new Render.Text(answers.text, answers.textColour)
+      console.log(text);
+      shape.setColour(answers.shapeColour);
+      const shapeRender = shape.render();
+      console.log(shapeRender);
+      const textRender = text.render();
+      console.log(textRender);
+      const svg = new Render.SVG();
+      const svgRender = svg.renderSVG(shapeRender, textRender);
+      return writeFile('./dist/logo.svg', svgRender);
+
   })
 }
 
