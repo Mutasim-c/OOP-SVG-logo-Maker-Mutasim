@@ -5,6 +5,7 @@ This node application allows a user to make a logo in a svg files using user inp
 
 ## Instillation
 Make your way to the directory where the index.js file is. Then run the command "npm i inquirer@8.2.4". then once the package is downloaded, run the command 'node index.js'. Then you will be presented with the questions.
+To run the tests run 'npm i -D jest' to install jest, then run 'npm run test'. alternatively you can just run npm i and it will install all the packages needed , then you only need to run 'node index.js' for the application and 'npm run test' to run the test.
 
 ## Link
 https://drive.google.com/file/d/1xENkpkKDeo38lYBKbswlsXsyT1lE61yI/view
