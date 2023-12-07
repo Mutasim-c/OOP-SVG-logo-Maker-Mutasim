@@ -45,19 +45,15 @@ function init() {
       // }else{
       //   const text = new Render.Text(answers.text, answers.textColour)
       // }
-      console.log(shape);
       const text = new Render.Text(answers.text, answers.textColour)
-      console.log(text);
       shape.setColour(answers.shapeColour);
       const shapeRender = shape.render();
-      console.log(shapeRender);
       const textRender = text.render();
-      console.log(textRender);
       const svg = new Render.SVG();
       const svgRender = svg.renderSVG(shapeRender, textRender);
       return writeFile('./dist/logo.svg', svgRender);
 
-  })
+  }).then((res) => console.log("Generated logo.svg"))
 }
 
 // Function call to initialize app
