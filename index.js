@@ -40,11 +40,9 @@ function init() {
           shape = new Shape.Circle();
           break
       }
-      // if(answers.text.length > 3){
-      //   throw new Error('Text is longer than 3 characters');
-      // }else{
-      //   const text = new Render.Text(answers.text, answers.textColour)
-      // }
+      if(answers.text.length > 3){
+        throw new Error('Text is longer than 3 characters');
+      }
       const text = new Render.Text(answers.text, answers.textColour)
       shape.setColour(answers.shapeColour);
       const shapeRender = shape.render();
